@@ -1,0 +1,56 @@
+//AltaArticulo.html
+<html>
+	<head>
+		<title>Alta Articulo</title>
+		<link rel="stylesheet" type="text/css" href="usiscom.css">
+	</head>
+
+	<body>
+
+			<header id="header" class="header">
+				<h1>Bienvenido a USISCOM</h1>
+			</header>
+
+			<nav id="nav" class="nav">
+				<ul>
+					<li><a href="INDEX.html">INDEX</a></li>
+					<li><a href="BusquedaArticulo.php">Busqueda Articulo - Catalogo</a></li>
+					<li><a href="BusquedaPedido.php">Busqueda Pedido</a></li>
+				</ul>
+			</nav>
+
+			<div id="content" class="content">
+				<h1>Alta articulo</h1>
+
+				<form method="post" action="AltaArticulo.php" enctype="multipart/form-data"> 
+					
+					<label>Nombre:</label>
+					<input type="text" id="nombreArticulo" name="nombreArticulo" />
+					<br />
+
+					<label>Descripcion:</label>
+					<input type="text" id="descripcionArticulo" name="descripcionArticulo" />
+					<br />
+					
+					<label>Precio:</label>
+					<input type="number" step=0.01  id="precioArticulo" name="precioArticulo" />
+					<br />
+
+					<label>No. Unidades:</label>
+					<input type="number" id="unidadesArticulo" name="unidadesArticulo" />
+					<br />
+					
+					<label>Imagen: </label>
+					<input type="file" name="fileToUpload" id="fileToUpload" />
+					<br />
+					
+					<input type="submit" id="subArticulo" name="subArticulo" />
+				</form>
+			</div>
+	
+			<footer id="footer" class="footer">
+				<h2>USISCOM</h2>
+			</footer>
+
+	</body>
+</html>

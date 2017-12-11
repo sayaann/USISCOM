@@ -1,0 +1,106 @@
+<html>
+
+	<head>
+		<title>Alta Pedido</title>
+
+		<script type="text/javascript">
+
+			function AddCookie () {
+
+				var cook = document.cookie;
+
+				//alert("cook ="+cook);
+
+				var count = 0;
+				var x='';
+				var y='cuenta';
+				var yy=' cuenta';
+
+				if (cook.length > 0) {
+					carr = cook.split(';');
+					for (var i=0; i<carr.length; i++) {
+
+						x = String(carr[i].split('=')[0]);
+						x = String(x);
+						//alert("x = -"+x+"-");
+
+
+						if (x==y || x==yy) {
+							//alert("cuenta found"); 
+							count = parseInt(carr[i].split('=')[1]);
+						}
+						
+
+						
+					}	
+				}
+
+
+				count = count+1;
+
+				//alert(count);
+
+				document.cookie = "cuenta="+count;
+				document.cookie = "art"+count+"=7777";
+				document.cookie = "un"+count+"=1";
+
+				//alert(document.cookie);
+			}
+
+			function SetPedido () {
+
+				AddCookie();
+
+				var allcookies = document.cookie;
+				
+				//alert(allcookies);
+
+				var text = '';
+
+				cookiearray = allcookies.split(';');
+
+				var id = new Array();
+				var un = new Array();
+				var x = '';
+
+				for (var i=0; i<cookiearray.length; i++) {
+					
+					x = String(cookiearray[i].split('=')[0]);
+
+					if (x.search(/art/gi) != -1) { id.push(cookiearray[i].split('=')[1]);}
+					if (x.search(/un/gi) != -1) { un.push(cookiearray[i].split('=')[1]);}
+
+
+				}
+
+				//alert(id.length);
+				//alert(un.length);
+
+				for (var i=0; i<id.length; i++) text += id[i]+" "+un[i]+"\n";
+				//alert(text);
+
+				document.getElementById('Pedido').value = text;
+			}
+
+		</script>
+
+	</head>
+
+	<body onload="SetPedido()">
+
+		<h1>Alta Pedido</h1>
+
+		<form>
+
+			<textarea id="Pedido" name="Pedido" readonly="true">
+			</textarea>
+			<br />
+
+			<input type="submit" name="subPedido" id="subPedido" />
+			<br />
+
+		</form>
+
+	</body>
+
+</html>
